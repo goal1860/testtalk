@@ -1,0 +1,11 @@
+_testtalk_hello:
+    path:  /hello/{name}
+    defaults: { _controller: HlTesttalkHlTesttalkBundle:Default:index }
+
+_testtalk_secured:
+    resource: "@HlTesttalkHlTesttalkBundle/Controller/SecuredController.php"
+    type:     annotation
+
+_testtalk_home:
+    path:  /
+    defaults: { _controller: HlTesttalkHlTesttalkBundle:Default:index }

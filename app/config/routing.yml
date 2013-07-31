@@ -1,0 +1,6 @@
+hl_testtalk_hl_testtalk:
+    resource: "@HlTesttalkHlTesttalkBundle/Resources/config/routing.yml"
+    prefix:   /
+
+
+

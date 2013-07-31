@@ -1,0 +1,68 @@
+.product_row_table {
+    padding-bottom: 10px;
+    text-align: center;
+    width: 100%;
+    position: relative;
+}
+
+.new {
+    font-size: 12px;
+}
+
+.frame {
+    position: relative;
+    margin: 0 auto;
+    width: 146px;
+}
+
+.rrp-savings {
+    background: url("../../images/ui/badge-citizen.png") no-repeat 100% 0 transparent;
+    color: #FFFFFF;
+    font-family: "Stag-Medium",Verdana,Helvetica,Arial,sans-serif;
+    font-size: 9px;
+    line-height: 0.9;
+    padding: 4px 6px 14px 14px;
+    position: absolute;
+    right: -7px;
+    top: 18px;
+    z-index: 1;
+}
+
+table {
+    display: table;
+    border-collapse: separate;
+    border-spacing: 2px;
+    border-color: gray;
+}
+
+tbody {
+    display: table-row-group;
+    vertical-align: middle;
+    border-color: inherit;
+}
+
+tr {
+    display: table-row;
+    vertical-align: inherit;
+    border-color: inherit;
+}
+
+div {
+    display: block;
+}
+
+div.plain {
+    color: #000;
+    width: 253px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    text-align: left;
+    display: none;
+    min-height: 40px;
+    background-color: #EDEDED;
+    border: 1px solid #777;
+}
+
+.product_row_table .thumb .frame img {
+    margin: 0 auto;
+}

@@ -69,4 +69,5 @@ div.plain {
 
 .product_row_table td {
     vertical-align: top;
+    max-width: 160px;
 }

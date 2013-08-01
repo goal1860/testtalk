@@ -66,3 +66,7 @@ div.plain {
 .product_row_table .thumb .frame img {
     margin: 0 auto;
 }
+
+.product_row_table td {
+    vertical-align: top;
+}

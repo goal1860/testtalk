@@ -9,3 +9,7 @@ _testtalk_secured:
 _testtalk_home:
     path:  /
     defaults: { _controller: HlTesttalkHlTesttalkBundle:Default:index }
+    
+_testtalk_delete_book:
+    path:  /delete_book
+    defaults: { _controller: HlTesttalkHlTesttalkBundle:Default:delete }

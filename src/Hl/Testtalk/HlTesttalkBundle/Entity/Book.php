@@ -10,8 +10,8 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="books")
  * @ORM\Entity(repositoryClass="Hl\Testtalk\HlTesttalkBundle\Entity\BookRepository")
  */
-class Book
-{
+class Book {
+
     /**
      * @var integer
      *
@@ -56,14 +56,19 @@ class Book
      */
     private $image;
 
+    /**
+     * @var boolean
+     * 
+     * @ORM\Column(name="new", type="boolean")
+     */
+    private $new;
 
     /**
      * Get id
      *
      * @return integer 
      */
-    public function getId()
-    {
+    public function getId() {
         return $this->id;
     }
 
@@ -73,10 +78,9 @@ class Book
      * @param string $name
      * @return Book
      */
-    public function setName($name)
-    {
+    public function setName($name) {
         $this->name = $name;
-    
+
         return $this;
     }
 
@@ -85,8 +89,7 @@ class Book
      *
      * @return string 
      */
-    public function getName()
-    {
+    public function getName() {
         return $this->name;
     }
 
@@ -96,10 +99,9 @@ class Book
      * @param string $language
      * @return Book
      */
-    public function setLanguage($language)
-    {
+    public function setLanguage($language) {
         $this->language = $language;
-    
+
         return $this;
     }
 
@@ -108,8 +110,7 @@ class Book
      *
      * @return string 
      */
-    public function getLanguage()
-    {
+    public function getLanguage() {
         return $this->language;
     }
 
@@ -119,10 +120,9 @@ class Book
      * @param string $description
      * @return Book
      */
-    public function setDescription($description)
-    {
+    public function setDescription($description) {
         $this->description = $description;
-    
+
         return $this;
     }
 
@@ -131,8 +131,7 @@ class Book
      *
      * @return string 
      */
-    public function getDescription()
-    {
+    public function getDescription() {
         return $this->description;
     }
 
@@ -142,10 +141,9 @@ class Book
      * @param string $categories
      * @return Book
      */
-    public function setCategories($categories)
-    {
+    public function setCategories($categories) {
         $this->categories = $categories;
-    
+
         return $this;
     }
 
@@ -154,8 +152,7 @@ class Book
      *
      * @return string 
      */
-    public function getCategories()
-    {
+    public function getCategories() {
         return $this->categories;
     }
 
@@ -165,10 +162,9 @@ class Book
      * @param string $image
      * @return Book
      */
-    public function setImage($image)
-    {
+    public function setImage($image) {
         $this->image = $image;
-    
+
         return $this;
     }
 
@@ -177,8 +173,29 @@ class Book
      *
      * @return string 
      */
-    public function getImage()
-    {
+    public function getImage() {
         return $this->image;
     }
+
+    /**
+     * Get new
+     *
+     * @return boolean 
+     */
+    public function isNew() {
+        return $this->new;
+    }
+
+    /**
+     * Set new
+     *
+     * @param boolean $new
+     * @return Book
+     */
+    public function setNew($new) {
+        $this->new = $new;
+
+        return $this;
+    }
+
 }

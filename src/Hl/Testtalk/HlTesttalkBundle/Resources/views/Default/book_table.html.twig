@@ -1,0 +1,15 @@
+<table class="product_row_table">
+<tr>
+<td>
+{% for book in books %}
+<div  style="float:left;max-width:170px;min-height:350px">
+<div class="frame">
+    <img class="product_image" src="{{ asset('bundles/testtalk/images/books/' ~ book.image) }}"/>
+</div>
+ <div><a href="{{ path('_testtalk_delete_book', { 'bookid': book.id }) }}">delete</a></div>
+ <div>{{ book.description }}</div>
+</div>
+{% endfor %}
+</td>
+</tr>
+</table>

@@ -13,3 +13,7 @@ _testtalk_home:
 _testtalk_delete_book:
     path:  /delete_book
     defaults: { _controller: HlTesttalkHlTesttalkBundle:Default:delete }
+    
+_testtalk_add_book:
+    path:  /add_book
+    defaults: { _controller: HlTesttalkHlTesttalkBundle:Default:add }

@@ -3,51 +3,22 @@
 {% block title "Hello " ~ name %}
 {% block head %}
 <link href="{{ asset('bundles/testtalk/css/books.css') }}" rel="stylesheet" type="text/css" media="all" />
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script type="text/javascript" src="{{ asset('bundles/testtalk/js/books.js') }}"></script>
 {% endblock %}
 {% block content %}
 <h1>Welcome {{ name }}! This is the list of books.</h1>
-
-<table class="product_row_table">
-<tr>
-<td>
-{% for book in books %}
-<div  style="float:left;max-width:170px;min-height:350px">
-<div class="frame">
-    <img class="product_image" src="{{ asset('bundles/testtalk/images/books/' ~ book.image) }}"/>
-</div>
- <div><a href="{{ path('_testtalk_delete_book', { 'bookid': book.id }) }}">delete</a></div>
- <div>{{ book.description }}</div>
-</div>
-{% endfor %}
-</td>
-</tr>
-</table>
-   
+<div id="book_list">
+{{ include(
+            'HlTesttalkHlTesttalkBundle:Default:book_table.html.twig',
+{ 'books': books } )}}
     </div>
-    <div class="block"><h2>Add a new book:</h2>
 
-        <div id="form">
-            <div><label class="required" for="form_name">Name</label>
-                <input type="text" required="required" name="form[name]" id="form_name">
-            </div>
-            <div><label class="required" for="form_language">Language</label>
-                <select required="required" name="form[language]" id="form_language">
-                    <option value="English">English</option>
-                    <option value="Spanish">Spanish</option>
-                    <option value="Russian">Russian</option>
-                </select>
-            </div>
-            <div>
-                <label class="required" for="form_new">New</label>
-                <input type="checkbox" value="1" required="required" name="form[new]" id="form_new">
-            </div>
-            
-            <div><?php echo button_to_function('Click me!', "alert('foobar')") ?>
-                <button id="form_Add" onClick="alert('foobar');
-                        return none;">Add</button></div>
-            </div>
+</div>
+<div class="block"><h2>Add a new book:</h2>
+    <div>
+    {{ form(form, {'attr': {'id' : 'form_add'}, 'onClick': 'add_book()'}) }}
 
         </div>
-
 {% endblock %}
 

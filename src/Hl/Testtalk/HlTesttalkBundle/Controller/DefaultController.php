@@ -10,15 +10,22 @@ class DefaultController extends Controller {
     private $form;
 
     public function indexAction() {
-        $em = $this->getDoctrine()->getManager();
-        $books = $em->getRepository('HlTesttalkHlTesttalkBundle:Book')
-                ->findAllBooks();
-        $session = $this->getRequest()->getSession();
-        $session->set('books', $books);
 
+        $session = $this->getRequest()->getSession();
+        if ($session->has('books')) {
+            $books = $session->get('books');
+
+            
+        } else {
+            $em = $this->getDoctrine()->getManager();
+            $books = $em->getRepository('HlTesttalkHlTesttalkBundle:Book')
+                    ->findAllBooks();
+            $session->set('books', $books);
+            
+        }
         $name = $this->getUser()->getUsername();
 
-        
+
 //        $book->setImage('default.jpg');
         $this->form = $this->getForm();
         return $this->render(
@@ -43,11 +50,9 @@ class DefaultController extends Controller {
             unset($books[$found]);
             $session->set('books', $books);
         }
-        $name = $this->getUser()->getUsername();
-        $this->form = $this->getForm();
-        return $this->render(
-                        'HlTesttalkHlTesttalkBundle:Default:index.html.twig', array('name' => $name, 'books' => $books, 'form' => $this->form->createView())
-        );
+        
+        return $this->redirect($this->generateUrl('_testtalk_home'));
+       
     }
 
     public function addAction() {
@@ -68,7 +73,7 @@ class DefaultController extends Controller {
         $books [] = $new_book;
         $session->set('books', $books);
         $html = $this->renderView(
-                        'HlTesttalkHlTesttalkBundle:Default:book_table.html.twig', array('books' => $books)
+                'HlTesttalkHlTesttalkBundle:Default:book_table.html.twig', array('books' => $books)
         );
         //echo $html;
         $out_json = array(
@@ -78,17 +83,17 @@ class DefaultController extends Controller {
         return new \Symfony\Component\HttpFoundation\Response(json_encode($out_json));
     }
 
-    
-    private function getForm(){
+    private function getForm() {
         return $this->createFormBuilder()
-                ->setAction($this->generateUrl('_testtalk_add_book'))
-                ->add('name', 'text')
-                ->add('language', 'choice', array(
-                    'choices' => array('English' => 'English', 'Spanish' => 'Spanish', "Russian" => "Russian"),
-                    'required' => true,
-                ))
-                ->add('new', 'checkbox')
-                ->add('Add', 'submit')
-                ->getForm();
+                        ->setAction($this->generateUrl('_testtalk_add_book'))
+                        ->add('name', 'text')
+                        ->add('language', 'choice', array(
+                            'choices' => array('English' => 'English', 'Spanish' => 'Spanish', "Russian" => "Russian"),
+                            'required' => true,
+                        ))
+                        ->add('new', 'checkbox')
+                        ->add('Add', 'submit')
+                        ->getForm();
     }
+
 }

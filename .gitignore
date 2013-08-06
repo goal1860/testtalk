@@ -4,3 +4,5 @@
 /app/cache/
 /vendor/
 /nbproject/private/
+/TestNGTest/nbproject/private/
+/TestNGTest/build/

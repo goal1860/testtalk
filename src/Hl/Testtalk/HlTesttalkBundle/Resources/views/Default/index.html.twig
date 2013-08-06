@@ -7,7 +7,7 @@
 <script type="text/javascript" src="{{ asset('bundles/testtalk/js/books.js') }}"></script>
 {% endblock %}
 {% block content %}
-<h1>Welcome {{ name }}! This is the list of books.</h1>
+<h1>Welcome {{ name }} [{{ role }}]! This is the list of books.</h1>
 <div id="book_list">
 {{ include(
             'HlTesttalkHlTesttalkBundle:Default:book_table.html.twig',

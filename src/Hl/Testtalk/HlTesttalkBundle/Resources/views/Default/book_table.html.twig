@@ -1,21 +1,27 @@
 <table class="product_row_table">
-<tr>
-<td>
+    <tr>
+        <td>
 {% set index = 0 %}
 {% for book in books %}
 {% set index = index + 1 %}
 {% if index % 5 == 1 %}
-<div class="cleared">&nbsp;</div>
+                <div class="cleared">&nbsp;</div>
 {% endif %}
-<div class="cell">
-<div class="frame">
-    <img class="product_image" src="{{ asset('bundles/testtalk/images/books/' ~ book.image) }}"/>
-</div>
-<div>{{ book.name}}</div>
- <div><a href="{{ path('_testtalk_delete_book', { 'bookid': book.id }) }}">delete</a></div>
- <div>{{ book.description | slice(0, 30) ~ '...' }}</div>
-</div>
+                <div class="cell">
+                    <div class="frame">
+                        {% if book.new %}
+                            <span class="new-book">
+                                New
+                            </span>
+                            {% endif %}
+                            <img class="product_image" src="{{ asset('bundles/testtalk/images/books/' ~ book.image) }}"/>
+                        </div>
+                        <div>{{ book.name }}</div>
+                        <div>{{ book.language }}</div>
+                        <div><a href="{{ path('_testtalk_delete_book', { 'bookid': book.id }) }}">delete</a></div>
+                        <div>{{ book.description | slice(0, 30) ~ '...' }}</div>
+                    </div>
 {% endfor %}
-</td>
-</tr>
-</table>
+                </td>
+            </tr>
+        </table>
